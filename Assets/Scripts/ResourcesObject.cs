@@ -6,5 +6,5 @@ public class ResourcesObject
 {
     public const string MOB_OBJECT = "Mob";
     public const string BOSS_OBJECT = "Boss";
-
+    public const string SCORE_UI = "ScoreUI";
 }
