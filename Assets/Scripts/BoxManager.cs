@@ -24,4 +24,20 @@ public class BoxManager
             pos.z+= 3;
         }
     }
+
+    public void EnemyDestory(GameObject obj)
+    {
+        foreach(var box in box_list)
+        {
+            if (box.Enemy != null)
+            {
+                if (obj.GetInstanceID() == box.Enemy.InstanceId)
+                {
+                    box.Enemy = null;
+                    box.IsEnemyInstance = true;
+                    break;
+                }
+            }
+        }
+    }
 }

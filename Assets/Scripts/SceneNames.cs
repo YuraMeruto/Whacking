@@ -8,4 +8,5 @@ public class SceneNames
     public const string TITLE = "Scenes/Title";
     public const string GAME = "Scenes/Game";
     public const string SCORE_RANKING = "Scenes/ScoreRanking";
+    public const string RESULT = "Scenes/Result";
 }

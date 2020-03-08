@@ -16,7 +16,6 @@ public class LoadSceneButton : MonoBehaviour
 
     public void LoadScene()
     {
-
         LoadScenes.Instance.LoadScene(SceneNames.DIRECTORY + scene_status.ToString());
     }
 }

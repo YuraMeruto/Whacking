@@ -15,13 +15,27 @@ public class PlayerControl : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            if (!StaticDatas.Instance.IsGamePlay)
+            {
+                return;
+            }
             var pos = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             var distance = Mathf.Infinity;
             if(Physics.Raycast(pos, out hit,distance))
             {
                 Debug.Log(hit.collider.name);
+                HitCollider(hit.collider.gameObject);
             }
         }
+    }
+
+    void HitCollider(GameObject obj)
+    {
+        if (obj.tag == "Enemy")
+        {
+            StaticDatas.Instance.EnemyManager.PlayerAttack(obj);
+        }
+        
     }
 }

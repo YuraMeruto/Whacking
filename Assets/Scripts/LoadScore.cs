@@ -3,11 +3,19 @@
 
 public class LoadScore 
 {
-    public Score Load()
+    public Score Load(bool is_best_score = false)
     {
         var score = new Score();
         score.name = PlayerPrefs.GetString(GameKeyValue.PLAYER_NAME);
-        score.score = PlayerPrefs.GetInt(GameKeyValue.PLAYER_SCORE);
+        if (is_best_score)
+        {
+            score.score = PlayerPrefs.GetInt(GameKeyValue.PLAYER_BEST_SCORE);
+        }
+        else
+        {
+            score.score = PlayerPrefs.GetInt(GameKeyValue.PLAYER_SCORE);
+        }
         return score;
     }
+
 }

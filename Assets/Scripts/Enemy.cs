@@ -8,15 +8,16 @@ public class Enemy : UpdateBase
     EnemyParam param = new EnemyParam();
     public EnemyAction EnemyAction{ get { return action; }}
     public EnemyParam EnemyParam { get { return param; } }
-    public void Ini()
+
+    public void Ini(EnemyParam.Level level = EnemyParam.Level.Mob)
     {
+        action.Ini(param,level);
         StaticDatas.Instance.EnemyManager.EnemyList.Add(this);
-        StaticDatas.Instance.UpdateManager.Add(this);
+        StaticDatas.Instance.UpdateManager.Add(this,param.Obj);
     }
 
     public override void Update()
     {
-        Debug.Log("Enemy");
         action.Update(param);
     }
 }

@@ -7,10 +7,9 @@ public class GameTimer : UpdateBase
 {
     Text text_obj;
     float time_value;
+
     public Text TextObj { get { return text_obj; } set { text_obj = value; } }
     public float TimeValue { get { return time_value; } set { time_value = value; } }
-
-
 
     public override void Update()
     {
@@ -31,5 +30,10 @@ public class GameTimer : UpdateBase
         StaticDatas.Instance.IsGamePlay = false;
         time_value = 0.0f;
         text_obj.text = time_value.ToString();
+        StaticDatas.Instance.BgmManager.Stop();
+        var save_score = new SaveScore();
+        save_score.Save(StaticDatas.Instance.UIManger.ScoreText.Score);
+        StaticDatas.Instance.UIManger.MessageUI.Show("Finish",3.0f, MessageUI.ActionStatus.ResultScene);
+
     }
 }
